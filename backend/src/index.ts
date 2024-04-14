@@ -9,7 +9,8 @@ import authRoutes from "./routes/auth.route";
 
 mongoose
   .connect(process.env.MONGODB_CONNECTION_STRING as string)
-  .then(() => console.log("Connected to the database"));
+  .then(() => console.log("Connected to the database"))
+  .catch((error) => console.log("Database connection error: ", error.message));
 
 const app = express();
 app.use(cookieParser());
