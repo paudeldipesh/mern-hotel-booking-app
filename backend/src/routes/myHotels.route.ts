@@ -33,8 +33,6 @@ router.post(
       .notEmpty()
       .isArray()
       .withMessage("Facilities are required"),
-    body("imageUrls").notEmpty().withMessage("Name is required"),
-    body("imageUrls").notEmpty().withMessage("Name is required"),
   ],
   upload.array("imageFiles", 6),
   async (req: Request, res: Response) => {
@@ -45,18 +43,19 @@ router.post(
       // Upload the images to cloudinary
       const uploadPromises = imageFiles.map(async (image) => {
         const b64 = Buffer.from(image.buffer).toString("base64");
-        let dataURI = `data:${image.mimetype};base64,${b64}`;
+        let dataURI = "data:" + image.mimetype + ";base64," + b64;
         const res = await cloudinary.v2.uploader.upload(dataURI);
         return res.url;
       });
-      const imageURLs = await Promise.all(uploadPromises);
 
-      newHotel.imageUrls = imageURLs;
+      const imageUrls = await Promise.all(uploadPromises);
+
+      newHotel.imageUrls = imageUrls;
       newHotel.lastUpdated = new Date();
       newHotel.userId = req.userId;
 
       // Save the new hotel in the database
-      const hotel = new Hotel();
+      const hotel = new Hotel(newHotel);
       await hotel.save();
 
       // Return a 201 status
