@@ -5,7 +5,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import Layout from "./layouts/Layout";
-import { Register, SignIn, AddHotel } from "./pages";
+import { Register, SignIn, AddHotel, MyHotels } from "./pages";
 import { useAppContext } from "./contexts/AppContext";
 
 export default function App() {
@@ -22,6 +22,7 @@ export default function App() {
             </Layout>
           }
         />
+
         <Route
           path="/search"
           element={
@@ -30,6 +31,7 @@ export default function App() {
             </Layout>
           }
         />
+
         <Route
           path="/register"
           element={
@@ -38,6 +40,7 @@ export default function App() {
             </Layout>
           }
         />
+
         <Route
           path="/sign-in"
           element={
@@ -46,6 +49,7 @@ export default function App() {
             </Layout>
           }
         />
+
         {isLoggedIn && (
           <>
             <Route
@@ -56,8 +60,18 @@ export default function App() {
                 </Layout>
               }
             />
+
+            <Route
+              path="/my-hotels"
+              element={
+                <Layout>
+                  <MyHotels />
+                </Layout>
+              }
+            />
           </>
         )}
+
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>

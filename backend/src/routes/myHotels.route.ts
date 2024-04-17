@@ -15,7 +15,7 @@ const upload = multer({
   },
 });
 
-// Hotel API: /api/my-hotels
+// Create hotel API: /api/my-hotels
 router.post(
   "/",
   verifyToken,
@@ -68,5 +68,17 @@ router.post(
     }
   }
 );
+
+// Read hotel API: /api/my-hotels
+router.get("/", verifyToken, async (req: Request, res: Response) => {
+  try {
+    const hotels = await Hotel.find({
+      userId: req.userId,
+    });
+    res.json(hotels);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching hotels" });
+  }
+});
 
 export default router;
