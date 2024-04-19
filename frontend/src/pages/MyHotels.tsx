@@ -14,7 +14,11 @@ export default function MyHotels() {
   );
 
   if (!hotelData) {
-    return <span>No hotels found...</span>;
+    return (
+      <div className="text-3xl text-gray-800 flex justify-center">
+        No hotels found...
+      </div>
+    );
   }
 
   return (

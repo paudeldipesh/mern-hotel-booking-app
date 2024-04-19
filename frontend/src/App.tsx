@@ -5,7 +5,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import Layout from "./layouts/Layout";
-import { Register, SignIn, AddHotel, MyHotels } from "./pages";
+import { Register, SignIn, AddHotel, MyHotels, EditHotel } from "./pages";
 import { useAppContext } from "./contexts/AppContext";
 
 export default function App() {
@@ -66,6 +66,15 @@ export default function App() {
               element={
                 <Layout>
                   <MyHotels />
+                </Layout>
+              }
+            />
+
+            <Route
+              path="/edit-hotel/:hotelId"
+              element={
+                <Layout>
+                  <EditHotel />
                 </Layout>
               }
             />
