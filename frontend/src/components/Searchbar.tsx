@@ -31,6 +31,14 @@ export default function Searchbar() {
   const maxDate = new Date();
   maxDate.setFullYear(maxDate.getFullYear() + 1);
 
+  const handleClear = () => {
+    setDestination("");
+    setCheckIn(today);
+    setCheckOut(today);
+    setAdultCount(1);
+    setChildCount(0);
+  };
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -106,7 +114,10 @@ export default function Searchbar() {
         <button className="bg-green-600 text-white h-full py-2 px-4 text-xl rounded font-bold hover:bg-green-500">
           Search
         </button>
-        <button className="bg-red-600 text-white h-full py-2 px-4 text-xl rounded font-bold hover:bg-red-500">
+        <button
+          onClick={handleClear}
+          className="bg-red-600 text-white h-full py-2 px-4 text-xl rounded font-bold hover:bg-red-500"
+        >
           Clear
         </button>
       </div>

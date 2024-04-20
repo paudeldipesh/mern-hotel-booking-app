@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { FormProvider, useForm } from "react-hook-form";
 import DetailsSection from "./DetailsSection";
 import TypesSection from "./TypesSection";
@@ -34,7 +33,6 @@ export default function ManageHotelForm({
   onSave,
   isLoading,
 }: ManageHotelFormProps) {
-  const navigate = useNavigate();
   const formMethods = useForm<HotelFormData>();
   const { handleSubmit, reset } = formMethods;
 
@@ -74,7 +72,6 @@ export default function ManageHotelForm({
     });
 
     onSave(formData);
-    navigate("/");
   });
 
   return (
