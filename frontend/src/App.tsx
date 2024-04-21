@@ -12,6 +12,7 @@ import {
   MyHotels,
   EditHotel,
   Search,
+  Details,
 } from "./pages";
 import { useAppContext } from "./contexts/AppContext";
 
@@ -35,6 +36,15 @@ export default function App() {
           element={
             <Layout>
               <Search />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/detail/:hotelId"
+          element={
+            <Layout>
+              <Details />
             </Layout>
           }
         />
