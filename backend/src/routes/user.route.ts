@@ -68,7 +68,7 @@ router.post(
 
       res.cookie("auth-token", token, {
         httpOnly: true,
-        secure: true,
+        secure: false,
         maxAge: 86400000,
       });
 
