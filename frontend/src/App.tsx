@@ -14,6 +14,8 @@ import {
   Search,
   Details,
   Booking,
+  MyBookings,
+  Home,
 } from "./pages";
 import { useAppContext } from "./contexts/AppContext";
 
@@ -27,7 +29,7 @@ export default function App() {
           path="/"
           element={
             <Layout>
-              <p>Home Page</p>
+              <Home />
             </Layout>
           }
         />
@@ -102,6 +104,15 @@ export default function App() {
               element={
                 <Layout>
                   <EditHotel />
+                </Layout>
+              }
+            />
+
+            <Route
+              path="/my-bookings"
+              element={
+                <Layout>
+                  <MyBookings />
                 </Layout>
               }
             />

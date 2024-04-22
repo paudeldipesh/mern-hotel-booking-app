@@ -60,6 +60,17 @@ router.get("/search", async (req: Request, res: Response) => {
   }
 });
 
+// Get Hotels API: /api/hotels
+router.get("/", async (req: Request, res: Response) => {
+  try {
+    const hotels = await Hotel.find().sort("-lastUpdated");
+    res.json(hotels);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Error fetching hotels" });
+  }
+});
+
 // Get Hotel detail API: /api/hotels/{id}
 router.get(
   "/:id",

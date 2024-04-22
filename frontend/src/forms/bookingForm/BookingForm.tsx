@@ -1,5 +1,5 @@
 import { useMutation } from "react-query";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import {
   PaymentIntentResponse,
@@ -38,12 +38,14 @@ export default function BookingForm({
   const search = useSearchContext();
   const { showToast } = useAppContext();
   const { hotelId } = useParams();
+  const navigate = useNavigate();
 
   const { mutate: bookRoom, isLoading } = useMutation(
     apiClient.createRoomBooking,
     {
       onSuccess: () => {
         showToast({ message: "Booking saved", type: "SUCCESS" });
+        navigate("/my-bookings");
       },
       onError: () => {
         showToast({ message: "Error saving booking", type: "ERROR" });
