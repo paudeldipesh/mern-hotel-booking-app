@@ -1,4 +1,4 @@
-import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import { useSearchContext } from "../../contexts/SearchContext";
