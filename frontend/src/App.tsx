@@ -13,6 +13,7 @@ import {
   EditHotel,
   Search,
   Details,
+  Booking,
 } from "./pages";
 import { useAppContext } from "./contexts/AppContext";
 
@@ -83,6 +84,15 @@ export default function App() {
               element={
                 <Layout>
                   <MyHotels />
+                </Layout>
+              }
+            />
+
+            <Route
+              path="/hotel/:hotelId/booking"
+              element={
+                <Layout>
+                  <Booking />
                 </Layout>
               }
             />
