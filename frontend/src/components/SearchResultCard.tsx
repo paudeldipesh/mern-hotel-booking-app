@@ -20,8 +20,8 @@ export default function SearchResultCard({ hotel }: SearchResultCardProps) {
         <div>
           <div className="flex items-center gap-2">
             <span className="flex">
-              {Array.from({ length: hotel.starRating }).map(() => (
-                <AiFillStar className="fill-yellow-400" />
+              {Array.from({ length: hotel.starRating }).map((_, index) => (
+                <AiFillStar key={index} className="fill-yellow-400" />
               ))}
             </span>
             <span className="ml-1 text-sm">{hotel.type}</span>
@@ -41,7 +41,10 @@ export default function SearchResultCard({ hotel }: SearchResultCardProps) {
         <div className="grid grid-cols-2 items-end whitespace-nowrap">
           <div className="flex gap-1 items-center">
             {hotel.facilities.slice(0, 3).map((facility) => (
-              <span className="bg-slate-300 p-2 rounded-lg font-bold text-xs whitespace-nowrap">
+              <span
+                key={facility}
+                className="bg-slate-300 p-2 rounded-lg font-bold text-xs whitespace-nowrap"
+              >
                 {facility}
               </span>
             ))}

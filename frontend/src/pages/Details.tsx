@@ -23,8 +23,8 @@ export default function Details() {
     <div className="space-y-6">
       <div>
         <span className="flex">
-          {Array.from({ length: hotel.starRating }).map(() => (
-            <AiFillStar className="fill-yellow-400" />
+          {Array.from({ length: hotel.starRating }).map((_, index) => (
+            <AiFillStar key={index} className="fill-yellow-400" />
           ))}
         </span>
 
@@ -32,8 +32,8 @@ export default function Details() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        {hotel.imageUrls.map((image) => (
-          <div className="h-[300px]">
+        {hotel.imageUrls.map((image, index) => (
+          <div key={index} className="h-[300px]">
             <img
               src={image}
               alt={hotel.name}
@@ -45,7 +45,10 @@ export default function Details() {
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-2">
         {hotel.facilities.map((facility) => (
-          <div className="border border-slate-300 rounded-sm p-3">
+          <div
+            key={facility}
+            className="border border-slate-300 rounded-sm p-3"
+          >
             {facility}
           </div>
         ))}

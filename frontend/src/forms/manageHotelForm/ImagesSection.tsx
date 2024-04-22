@@ -29,7 +29,7 @@ export default function ImagesSection() {
         {existingImageUrls && (
           <div className="grid grid-cols-6 gap-4">
             {existingImageUrls.map((url) => (
-              <div className="relative group rounded overflow-hidden">
+              <div key={url} className="relative group rounded overflow-hidden">
                 <img
                   src={url}
                   alt="hotel icon"
