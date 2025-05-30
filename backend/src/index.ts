@@ -4,12 +4,12 @@ import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import path from "path";
 import { v2 as cloudinary } from "cloudinary";
-import "dotenv/config";
 import userRoutes from "./routes/user.route";
 import authRoutes from "./routes/auth.route";
 import myHotelRoutes from "./routes/myHotels.route";
 import hotelRoutes from "./routes/hotels.route";
 import bookingRoutes from "./routes/myBookings.route";
+import "dotenv/config";
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
