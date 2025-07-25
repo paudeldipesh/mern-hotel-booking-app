@@ -11,7 +11,7 @@ MERN Bookify is a full-stack web application for booking hotels. It allows users
 - Hotel management: Users can create hotels, view their own hotels, and edit hotel information.
 - Payment integration: Users can make payments for hotel bookings through Stripe.
 
-## Technologies Used
+## Technologies Use
 
 - MongoDB: Database for storing hotel and user information.
 - Express.js: Backend framework for handling HTTP requests and routing.
